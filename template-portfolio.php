@@ -71,16 +71,22 @@ Template Name: Portfolio
 		
 
                             <?php endif; ?>
-                            
                         </div>
                         
                         <div class="arrow"></div>	
                         
-			<?php echo get_post_meta($post->ID, 'gogo_select_portfolio_cat', true); ?>
+            			<?php echo get_post_meta($post->ID, 'gogo_select_portfolio_cat', true); ?>
+                        <?php 
+                            // get the skill-types and add space in between
+                            $terms = get_the_term_list( $post->ID, __( 'skill-type' ), '', ', ','' );
+                            // remove link on skill-types
+                            $terms = strip_tags( $terms );
+                        ?>
+                        <h2 class="entry-title skill-types"><?php echo $terms; // display skill-types ?></h2>
                         <h2 class="entry-title"><?php the_title(); ?></h2>
                         <div class="like-count">
-			<?php tz_printLikes(get_the_ID()); ?>
-			</div>
+                            <?php tz_printLikes(get_the_ID()); ?>
+                        </div>
 
 			<div class="entry-excerpt">
 			<?php echo get_post_meta($post->ID, 'portfolio-gueltig-von', true); ?>
