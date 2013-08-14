@@ -25,11 +25,22 @@
                 <!-- the search form -->
                 <?php get_search_form(); ?>
                 <!--BEGIN #masonry-->
-                <p class="search-query">Ihre Suche nach <span class="search-term">"<?php echo $search ?>"</span> brachte Folgende Resultate:</p>
+                <p class="search-query">Ihre Suche nach <span class="search-term">"<?php echo $search; ?>"</span> brachte Folgendes Resultat:</p>
             	<div id="masonry-portfolio">
                                     
                 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
                 
+                    <?php
+                
+                        // gültig von und bis in php timestamps verwandeln
+
+                        $start_ts = strtotime(get_post_meta($post->ID, 'portfolio-gueltig-von', true));
+                        $end_ts = strtotime(get_post_meta($post->ID, 'portfolio-gueltig-bis', true));
+                        $ts = current_time( $type, $gmt = 0 );
+
+                        if (($ts >= $start_ts) && ($ts <= $end_ts)) {
+                    ?>
+
                     <!--BEGIN .hentry -->
                     <div <?php post_class(); ?> id="post-<?php the_ID(); ?>">
                     
@@ -86,7 +97,11 @@
                             
                         </div>
                         
-                        <div class="arrow"></div>   
+                        <?php if (get_post_meta($post->ID, 'portfolio-gueltig-bis', true)) { ?>
+                            <div class="arrow"></div>   
+                        <?php
+                        }
+                        ?> 
 
                         <?php 
                             // get the skill-types and add space in between
@@ -97,9 +112,13 @@
                         <h2 class="entry-title skill-types"><?php echo $terms; // display skill-types ?></h2>
                         <h2 class="entry-title"><?php the_title(); ?></h2>
                         <div class="entry-excerpt">
-                            <?php echo get_post_meta($post->ID, 'portfolio-gueltig-von', true); ?>
-                            <?php echo "bis"; ?>
-                            <?php echo get_post_meta($post->ID, 'portfolio-gueltig-bis', true); ?>
+                            <?php
+                            $start_ft = DateTime::createFromFormat('dmY', get_field('portfolio-gueltig-von'));
+                            $end_ft = DateTime::createFromFormat('dmY', get_field('portfolio-gueltig-bis'));
+                            echo $start_ft->format('d.m.Y');
+                            echo " bis ";
+                            echo $end_ft->format('d.m.Y');
+                            ?>
                         </div>
                         <li class="like-count">
                             <?php tz_printLikes(get_the_ID()); ?>
@@ -108,7 +127,8 @@
                         
                     <!--END .hentry-->  
                     </div>
-
+                <!-- END timerange -->
+                <?php } ?>
                 <?php endwhile; endif; ?>
                 </div>
                 <!--END #masonry-->
