@@ -1887,6 +1887,7 @@ div.jp-jplayer { background-color: #292a2b; }
 }
 
 /* ADDITIONAL STYLES */
+/* SEARCHFORM */
 
 #searchform {
 	margin: 0 0 20px 25px;
@@ -1936,6 +1937,18 @@ div.jp-jplayer { background-color: #292a2b; }
   #searchform input[type=text] {
 		width: 1540px;
 	}
+}
+
+/* LIKE POSITION */
+
+.portfolio {
+	position: relative;
+}
+
+.like-count {
+	position: absolute;
+	bottom: 6px;
+	right: 2px;
 }
 
 
