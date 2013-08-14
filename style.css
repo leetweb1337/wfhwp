@@ -908,14 +908,16 @@ label.error { color: red; }
 
 /* Portfolio ------------------------------*/
 .tax-skill-type #primary,
-.page.page-template-template-portfolio-php #primary {
+.page.page-template-template-portfolio-php #primary,
+#primary {
 	width: auto;
 	margin-left: 205px;
 	float: none;
 }
 
 .tax-skill-type .hentry,
-.page.page-template-template-portfolio-php .hentry {
+.page.page-template-template-portfolio-php .hentry,
+.hentry {
 	width: 200px;
 	height: 275px;
 	overflow: hidden;
@@ -925,7 +927,8 @@ label.error { color: red; }
 }
 
 .tax-skill-type .hentry .arrow,
-.page.page-template-template-portfolio-php .hentry .arrow {
+.page.page-template-template-portfolio-php .hentry .arrow,
+.hentry .arrow {
 	top: 192px;
 	right: 15px;
 }
@@ -934,7 +937,8 @@ label.error { color: red; }
 .page.page-template-template-portfolio-php a .overlay .icon { left: 46%; }
 
 .tax-skill-type .entry-title,
-.page.page-template-template-portfolio-php .entry-title {
+.page.page-template-template-portfolio-php .entry-title,
+.entry-title {
 	font-size: 12px;
 	border: none;
 	margin: 0;
@@ -942,7 +946,8 @@ label.error { color: red; }
 }
 
 .tax-skill-type .entry-excerpt,
-.page.page-template-template-portfolio-php .entry-excerpt {
+.page.page-template-template-portfolio-php .entry-excerpt,
+.entry-excerpt {
 	padding: 3px 15px 20px 15px;
 	font-size: 12px;
 	line-height: 11px;
@@ -1959,8 +1964,19 @@ div.jp-jplayer { background-color: #292a2b; }
 
 /* STYLE OF SKILL TYPES HEADLINE */
 
+.page.page-template-template-portfolio-php .entry-title.skill-types,
 .entry-title.skill-types {
 	padding-top: 12px;
+}
+
+/* SEARCH QUERY */
+
+.search-query {
+	padding-left: 25px;
+}
+
+.search-term {
+	font-weight: bold;
 }
 
 
