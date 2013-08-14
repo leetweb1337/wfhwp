@@ -1951,6 +1951,11 @@ div.jp-jplayer { background-color: #292a2b; }
 	right: 2px;
 }
 
+/* POST THUMB height 200px*/
+
+.post-thumb {
+	height: 200px;
+}
 
 
 
