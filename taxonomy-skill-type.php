@@ -90,25 +90,41 @@
                         <div class="arrow"></div>	
 
                         <?php 
+                            // get info if link is not empty
+                            $linkinfo;
+                            $linkinfo = "";
+                            $linkinfo = get_field('externer_link');
+                            $openhref = "";
+                            $closehref = "";
+                            //$linkinfo = get_field('externer_link');
+                            if ($linkinfo != ""){
+                                $openhref="<a target=\"_blank\" href=\"".$linkinfo."\">";
+                                $closehref="</a>";
+                            }
+                        ?>
+
+                        <?php 
                             // get the skill-types and add space in between
                             $terms = get_the_term_list( $post->ID, __( 'skill-type' ), '', ', ','' );
                             // remove link on skill-types
                             $terms = strip_tags( $terms );
                         ?>
-                        <h2 class="entry-title skill-types"><?php echo $terms; // display skill-types ?></h2>
-                        <h2 class="entry-title"><?php the_title(); ?></h2>
+                        <h2 class="entry-title skill-types"><?php echo $openhref.$terms.$closehref; // display skill-types ?></h2>
+                        <h2 class="entry-title"><?php echo $openhref; the_title(); echo $closehref; ?></h2>
                         <div class="entry-excerpt">
                             <?php
                             $start_ft = DateTime::createFromFormat('dmY', get_field('portfolio-gueltig-von'));
                             $end_ft = DateTime::createFromFormat('dmY', get_field('portfolio-gueltig-bis'));
+                            echo $openhref;
                             echo $start_ft->format('d.m.Y');
                             echo " bis ";
                             echo $end_ft->format('d.m.Y');
+                            echo $closehref;
                             ?>
                         </div>
-                        <li class="like-count">
+                        <div class="like-count">
                             <?php tz_printLikes(get_the_ID()); ?>
-                        </li>
+                        </div>
 
                         
                     <!--END .hentry-->  
