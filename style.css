@@ -943,7 +943,7 @@ label.error { color: red; }
 
 .tax-skill-type .entry-excerpt,
 .page.page-template-template-portfolio-php .entry-excerpt {
-	padding: 2px 15px 20px 15px;
+	padding: 3px 15px 20px 15px;
 	font-size: 12px;
 	line-height: 11px;
 }
@@ -1959,7 +1959,7 @@ div.jp-jplayer { background-color: #292a2b; }
 
 /* STYLE OF SKILL TYPES HEADLINE */
 
-.page.page-template-template-portfolio-php .entry-title.skill-types {
+.entry-title.skill-types {
 	padding-top: 12px;
 }
 

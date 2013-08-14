@@ -18,7 +18,7 @@ Template Name: Portfolio
 			);
 			
 			?>   
-
+                <!-- the search form -->
                 <?php get_search_form(); ?>
             	<!--BEGIN #masonry-->
             	<div id="masonry-portfolio">
@@ -84,15 +84,14 @@ Template Name: Portfolio
                         ?>
                         <h2 class="entry-title skill-types"><?php echo $terms; // display skill-types ?></h2>
                         <h2 class="entry-title"><?php the_title(); ?></h2>
+                        <div class="entry-excerpt">
+                            <?php echo get_post_meta($post->ID, 'portfolio-gueltig-von', true); ?>
+                            <?php echo "bis"; ?>
+                            <?php echo get_post_meta($post->ID, 'portfolio-gueltig-bis', true); ?>
+                        </div>
                         <div class="like-count">
                             <?php tz_printLikes(get_the_ID()); ?>
                         </div>
-
-			<div class="entry-excerpt">
-			<?php echo get_post_meta($post->ID, 'portfolio-gueltig-von', true); ?>
-			<?php echo "bis"; ?>
-			<?php echo get_post_meta($post->ID, 'portfolio-gueltig-bis', true); ?>
-			</div>
                         
                     <!--END .hentry-->  
                     </div>
