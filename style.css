@@ -1885,3 +1885,59 @@ div.jp-jplayer { background-color: #292a2b; }
 	top: 10px !important;
 	right: 8px !important;
 }
+
+/* ADDITIONAL STYLES */
+
+#searchform {
+	margin: 0 0 20px 25px;
+}
+
+#searchform input[type=text] {
+	/*min-width: 100%;*/
+}
+
+@media screen and (max-width: 660px) {
+  #searchform input[type=text] {
+		min-width: 188px;
+	}
+}
+
+@media screen and (min-width: 660px) and (max-width: 880px) {
+  #searchform input[type=text] {
+		width: 416px;
+	}
+}
+
+@media screen and (min-width: 880px) and (max-width: 1105px) {
+  #searchform input[type=text] {
+		width: 640px;
+	}
+}
+
+@media screen and (min-width: 1105px) and (max-width: 1330px) {
+  #searchform input[type=text] {
+		width: 864px;
+	}
+}
+
+@media screen and (min-width: 1330px) and (max-width: 1556px) {
+  #searchform input[type=text] {
+		width: 1090px;
+	}
+}
+
+@media screen and (min-width: 1556px) and (max-width: 1780px) {
+  #searchform input[type=text] {
+		width: 1314px;
+	}
+}
+
+@media screen and (min-width: 1780px) and (max-width: 2001px) {
+  #searchform input[type=text] {
+		width: 1540px;
+	}
+}
+
+
+
+

@@ -17,7 +17,9 @@ Template Name: Portfolio
 				)
 			);
 			
-			?>
+			?>   
+
+                <?php get_search_form(); ?>
             	<!--BEGIN #masonry-->
             	<div id="masonry-portfolio">
 				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
