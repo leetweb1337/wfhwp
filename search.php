@@ -130,11 +130,13 @@
                             <?php
                             $start_ft = DateTime::createFromFormat('dmY', get_post_meta($post->ID, 'portfolio-gueltig-von', true));
                             $end_ft = DateTime::createFromFormat('dmY', get_post_meta($post->ID, 'portfolio-gueltig-bis', true));
-                            echo $openhref;
-                            echo $start_ft->format('d.m.y');
-                            echo " bis ";
-                            echo $end_ft->format('d.m.y');
-                            echo $closehref;
+                            if (get_post_meta($post->ID, 'portfolio-gueltig-bis', true)) {
+                                echo $openhref;
+                                echo $start_ft->format('d.m.y');
+                                echo " bis ";
+                                echo $end_ft->format('d.m.y');
+                                echo $closehref;
+                            }
                             ?>
                         </div>
                         <div class="like-count">

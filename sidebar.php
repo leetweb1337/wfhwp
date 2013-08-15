@@ -29,26 +29,7 @@
             	<div class="line"></div>
             </div>
 			
-            <?php if(!is_page() && !is_page_template('template-portfolio.php') && !is_tax('skill-type') && get_post_type() != 'portfolio') : ?>
-            
-			<?php if ( !function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar() ) ?>
-            
-            
-            <?php elseif(is_page() && !is_page_template('template-portfolio.php')) : ?>
-            
-            <?php if ( !function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar('Page Sidebar') ) ?>
-            
-            
-            <?php elseif(is_page_template('template-portfolio.php') || is_tax('skill-type') || get_post_type() == 'portfolio') :?>
-            
-            <?php if ( !function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar('Portfolio Sidebar') ) ?> 
-            
-            
-            <?php endif; ?>
-            
-            <?php if(is_page_template('template-portfolio.php') || is_tax('skill-type') || get_post_type() == 'portfolio') :?>
-            
-            <?php endif; ?>
+            <?php if ( !function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar('Portfolio Sidebar') ) ?>
             
             <!-- BEGIN #back-to-top -->
             <div id="back-to-top">
