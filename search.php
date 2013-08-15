@@ -128,8 +128,8 @@
                         <h2 class="entry-title"><?php echo $openhref; the_title(); echo $closehref; ?></h2>
                         <div class="entry-excerpt">
                             <?php
-                            $start_ft = DateTime::createFromFormat('dmY', get_field('portfolio-gueltig-von'));
-                            $end_ft = DateTime::createFromFormat('dmY', get_field('portfolio-gueltig-bis'));
+                            $start_ft = DateTime::createFromFormat('dmY', get_post_meta($post->ID, 'portfolio-gueltig-von', true));
+                            $end_ft = DateTime::createFromFormat('dmY', get_post_meta($post->ID, 'portfolio-gueltig-bis', true));
                             echo $openhref;
                             echo $start_ft->format('d.m.y');
                             echo " bis ";
