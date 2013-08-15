@@ -104,11 +104,24 @@ Template Name: Portfolio
 
                         <?php 
                             // get the skill-types and add space in between
-                            $terms = get_the_term_list( $post->ID, __( 'skill-type' ), '', ', ','' );
+                            $terms = get_the_term_list( $post->ID,'skill-type', '', ', ','' );
                             // remove link on skill-types
                             $terms = strip_tags( $terms );
+                            // massive hack ;-) ... just keep second category in string (Kategorie2) ... 
+                            $splitTerms = explode(',', $terms, 3);
                         ?>
-                        <h2 class="entry-title skill-types"><?php echo $openhref.$terms.$closehref; // display skill-types ?></h2>
+                        <?php
+                        foreach(get_the_category($post->ID) as $cat) {
+                           if(!$cat->parent) : //check if top cat
+                           echo $cat->term_id.' '.$cat->name.' (skill-type)<br/>'; //top cat
+                           $sub_cats = get_categories('parent='.$cat->term_id);
+                           if($sub_cats) foreach($sub_cats as $sub_cat) {
+                           echo $sub_cat->term_id.' '.$sub_cat->name.'<br/>'; //sub cat(s)
+                           }
+                           endif;
+                        }
+                        ?>
+                        <h2 class="entry-title skill-types"><?php echo $openhref.$splitTerms[1].$closehref; // display skill-types ?></h2>
                         <h2 class="entry-title"><?php echo $openhref; the_title(); echo $closehref; ?></h2>
                         <div class="entry-excerpt">
                             <?php

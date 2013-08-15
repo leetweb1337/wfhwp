@@ -121,8 +121,10 @@
                             $terms = get_the_term_list( $post->ID, __( 'skill-type' ), '', ', ','' );
                             // remove link on skill-types
                             $terms = strip_tags( $terms );
+                            // massive hack ;-) ... just keep second category in string (Kategorie2) ... 
+                            $splitTerms = explode(',', $terms, 3);
                         ?>
-                        <h2 class="entry-title skill-types"><?php echo $openhref.$terms.$closehref; // display skill-types ?></h2>
+                        <h2 class="entry-title skill-types"><?php echo $openhref.$splitTerms[1].$closehref; // display skill-types ?></h2>
                         <h2 class="entry-title"><?php echo $openhref; the_title(); echo $closehref; ?></h2>
                         <div class="entry-excerpt">
                             <?php
