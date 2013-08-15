@@ -116,9 +116,9 @@
                             $start_ft = DateTime::createFromFormat('dmY', get_field('portfolio-gueltig-von'));
                             $end_ft = DateTime::createFromFormat('dmY', get_field('portfolio-gueltig-bis'));
                             echo $openhref;
-                            echo $start_ft->format('d.m.Y');
+                            echo $start_ft->format('d.m.y');
                             echo " bis ";
-                            echo $end_ft->format('d.m.Y');
+                            echo $end_ft->format('d.m.y');
                             echo $closehref;
                             ?>
                         </div>
