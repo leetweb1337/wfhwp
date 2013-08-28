@@ -37,7 +37,6 @@ Template Name: Portfolio
                     $ts = DateTime::createFromFormat('dmY', $tss);
 
                     ?>
-                    </div>
                     <?php
 
                     if (($start_ts <= $ts) && ($end_ts >= $ts) || ($start_ts == $ts) && ($end_ts == $ts)) {
