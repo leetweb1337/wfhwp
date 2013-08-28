@@ -39,7 +39,7 @@
                     $tss = date('dmY');
                     $ts = DateTime::createFromFormat('dmY', $tss);
 
-                        if (($ts >= $start_ts) && ($ts <= $end_ts)) {
+                        if (($ts >= $start_ts) && ($ts <= $end_ts) || ($start_ts == $ts) && ($end_ts == $ts)) {
                     ?>
 
                     <!--BEGIN .hentry -->

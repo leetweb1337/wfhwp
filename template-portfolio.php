@@ -40,7 +40,7 @@ Template Name: Portfolio
                     </div>
                     <?php
 
-                    if (($start_ts <= $ts) && ($end_ts >= $ts)) {
+                    if (($start_ts <= $ts) && ($end_ts >= $ts) || ($start_ts == $ts) && ($end_ts == $ts)) {
                 ?>
 
                     <!--BEGIN .hentry -->
