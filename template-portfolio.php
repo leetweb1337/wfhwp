@@ -12,6 +12,8 @@ Template Name: Portfolio
             <?php 
 			
 			query_posts( array(
+							'order' => 'ASC',
+							'orderby' => 'title',
 							'post_type' => 'portfolio',
 							'posts_per_page' => -1
 				)
@@ -29,19 +31,22 @@ Template Name: Portfolio
                 <?php
             
                     // gültig von und bis in php timestamps verwandeln
+                    $start_ts = DateTime::createFromFormat('dmY', get_field('portfolio-gueltig-von'));
+                    $end_ts = DateTime::createFromFormat('dmY', get_field('portfolio-gueltig-bis'));
+                    $tss = date('dmY');
+                    $ts = DateTime::createFromFormat('dmY', $tss);
 
-                    $start_ts = strtotime(get_post_meta($post->ID, 'portfolio-gueltig-von', true));
-                    $end_ts = strtotime(get_post_meta($post->ID, 'portfolio-gueltig-bis', true));
-                    $ts = current_time( $type, $gmt = 0 );
+                    ?>
+                    </div>
+                    <?php
 
-                    if (($ts >= $start_ts) && ($ts <= $end_ts)) {
+                    if (($start_ts <= $ts) && ($end_ts >= $ts)) {
                 ?>
 
                     <!--BEGIN .hentry -->
                     <div <?php post_class(); ?> id="post-<?php the_ID(); ?>">
                         
                         <?php 
-                        
                         
                         $lightbox = get_post_meta(get_the_ID(), 'tz_portfolio_lightbox', TRUE); 
                         $thumb = get_post_meta(get_the_ID(), 'tz_portfolio_thumb', TRUE); 
@@ -108,7 +113,8 @@ Template Name: Portfolio
                             // remove link on skill-types
                             $terms = strip_tags( $terms );
                             // massive hack ;-) ... just keep second category in string (Kategorie2) ... 
-                            $splitTerms = explode(',', $terms, 3);
+                            // EDIT here
+                            $splitTerms = explode(',', $terms, 2);
                         ?>
                         <?php
                         foreach(get_the_category($post->ID) as $cat) {

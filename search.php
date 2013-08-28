@@ -24,6 +24,7 @@
 				
                 <!-- the search form -->
                 <?php get_search_form(); ?>
+
                 <!--BEGIN #masonry-->
                 <p class="search-query">Ihre Suche nach <span class="search-term">"<?php echo $search; ?>"</span> brachte Folgendes Resultat:</p>
             	<div id="masonry-portfolio">
@@ -32,11 +33,11 @@
                 
                     <?php
                 
-                        // gültig von und bis in php timestamps verwandeln
-
-                        $start_ts = strtotime(get_post_meta($post->ID, 'portfolio-gueltig-von', true));
-                        $end_ts = strtotime(get_post_meta($post->ID, 'portfolio-gueltig-bis', true));
-                        $ts = current_time( $type, $gmt = 0 );
+                    // gültig von und bis in php timestamps verwandeln
+                    $start_ts = DateTime::createFromFormat('dmY', get_field('portfolio-gueltig-von'));
+                    $end_ts = DateTime::createFromFormat('dmY', get_field('portfolio-gueltig-bis'));
+                    $tss = date('dmY');
+                    $ts = DateTime::createFromFormat('dmY', $tss);
 
                         if (($ts >= $start_ts) && ($ts <= $end_ts)) {
                     ?>
