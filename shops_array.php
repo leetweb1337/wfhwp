@@ -1,0 +1,1 @@
+<?php $shops = array("Lidl","Mpreis","Merkur","Hofer");
